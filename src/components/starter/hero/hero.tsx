@@ -4,7 +4,7 @@ import styles from './hero.module.css'
 export default component$(() => {
   return (
     <div class={styles.hero}>
-      <h1 class="text-center w-full">Welcome to qwik</h1>
+      <h1 class="text-center w-full -mt-24">Welcome to qwik</h1>
       <button
         onClick$={async () => {
           const defaults = {
