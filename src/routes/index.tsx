@@ -3,8 +3,9 @@ import type { DocumentHead } from '@builder.io/qwik-city'
 import { server$ } from '@builder.io/qwik-city'
 import Hero from '~/components/starter/hero/hero'
 import Contenido from '../routes/contenido.md'
+import { clickExport } from './apis'
 export default component$(() => {
-  const count = useSignal(0)
+  const count = useSignal(1)
   return (
     <>
       <Hero />
@@ -21,14 +22,11 @@ export default component$(() => {
         >
           Click {count.value}
         </button>
-        <button
-          class={{ par: count.value % 2 === 0, impar: count.value % 2 === 1 }}
-          onClick$={server$(() => {
-            console.log('click')
-            count.value++
-          })}
-        >
-          Server {count.value}
+        <button onClick$={async () => (await click(count)) && count.value++}>
+          Server
+        </button>
+        <button onClick$={async () => (count.value = await clickExport(count))}>
+          Export Server
         </button>
       </div>
     </>
@@ -44,3 +42,9 @@ export const head: DocumentHead = {
     },
   ],
 }
+
+const click = server$((count) => {
+  console.log(count.value)
+  console.log('click actualizado')
+  return true
+})
