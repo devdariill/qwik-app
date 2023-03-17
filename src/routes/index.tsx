@@ -6,14 +6,13 @@ export default component$(() => {
   return (
     <>
       <Hero />
-      <div class='section'>
-        <div class='container center'>
+      <div class="section">
+        <div class="container center">
           <h3>
             <Contenido />
           </h3>
         </div>
       </div>
-
     </>
   )
 })
@@ -23,7 +22,7 @@ export const head: DocumentHead = {
   meta: [
     {
       name: 'description',
-      content: 'Qwik site description'
-    }
-  ]
+      content: 'Qwik site description',
+    },
+  ],
 }
