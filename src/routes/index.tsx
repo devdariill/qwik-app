@@ -24,7 +24,7 @@ export default component$(() => {
     // const data = await getMovies(search.value)
     const data = await clickFetch(search.value)
     console.log(data)
-    data && (lista.value = data || [])
+    lista.value = data || []
     // lista.value = await getMovies(search.value)
   })
   // auto fetch
