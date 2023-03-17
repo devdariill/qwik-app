@@ -6,12 +6,17 @@ export default component$(() => {
   return (
     <>
       <Hero />
-      <div class="section">
-        <div class="container center">
-          <h3>
-            <Contenido />
-          </h3>
-        </div>
+      <div class="container center">
+        <h3>
+          <Contenido />
+        </h3>
+        <button
+          onClick$={() => {
+            console.log('click')
+          }}
+        >
+          Click
+        </button>
       </div>
     </>
   )

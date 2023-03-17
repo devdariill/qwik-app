@@ -1,16 +1,17 @@
-import { component$, Slot } from '@builder.io/qwik';
-import { routeLoader$ } from '@builder.io/qwik-city';
+import { component$, Slot } from '@builder.io/qwik'
+import { routeLoader$ } from '@builder.io/qwik-city'
 
-import Header from '~/components/starter/header/header';
-import Footer from '~/components/starter/footer/footer';
+import Header from '~/components/starter/header/header'
+import Footer from '~/components/starter/footer/footer'
 
 export const useServerTimeLoader = routeLoader$(() => {
   return {
     date: new Date().toISOString(),
-  };
-});
+  }
+})
 
 export default component$(() => {
+  console.log('COMPONENT')
   return (
     <div class="page">
       <main>
@@ -23,5 +24,5 @@ export default component$(() => {
         </div>
       </div>
     </div>
-  );
-});
+  )
+})
