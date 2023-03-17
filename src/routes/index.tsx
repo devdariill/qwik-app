@@ -1,8 +1,9 @@
-import { $, component$ } from '@builder.io/qwik'
+import { $, component$, useContext } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
 import { server$ } from '@builder.io/qwik-city'
 import { Movies } from '~/components/movies/movies'
 import Hero from '~/components/starter/hero/hero'
+import { globalState } from '~/root'
 
 const api = server$((nu: string, url: URL, date: Date, obj: any) => {
   console.log(nu, url, date, obj)
@@ -21,9 +22,11 @@ const sss = $(() => {
 })
 
 export default component$(() => {
+  const state = useContext(globalState)
+  console.log(state)
   return (
     <>
-      <div class="grid place-items-center w-full">
+      <div class="grid place-items-center w-full mt-10">
         <button
           onClick$={() => {
             // 123123123 : reusing the same string
