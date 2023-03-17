@@ -23,6 +23,17 @@ export const useGetMovies = globalAction$(async (values) => {
   return { movies: list ?? [] }
 }, zod$({ search: z.string() }))
 
+// export const useGetMoviesRoute = routeAction$(async (values) => {
+//   const url = new URL('https://omdbapi.com/')
+//   url.searchParams.set('s', values.search)
+//   // url.searchParams.set('s', values.search as string)
+//   url.searchParams.set('apikey', '3067b2f9')
+//   const res = await fetch(url)
+//   const data = await res.json()
+//   const list = data.Search as Item[]
+//   return { movies: list ?? [] }
+// }, zod$({ search: z.string() }))
+
 export const Movies = component$(() => {
   const movies = useGetMovies()
   return (
@@ -34,6 +45,10 @@ export const Movies = component$(() => {
             <input type="text" name="search" required />
             <button type="submit">Search</button>
           </Form>
+          {/* <form method='post' action={movies.actionPath}>
+            <input type="text" name="search" required />
+            <button type="submit">Search</button>
+          </form> */}
           <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {movies.value?.movies?.map((item) => (
               <li key={item.imdbID} class="grid place-items-center gap-5">
