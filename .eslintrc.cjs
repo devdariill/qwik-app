@@ -6,7 +6,6 @@ module.exports = {
     node: true
   },
   extends: [
-    './node_modules/standard/eslintrc.json',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:qwik/recommended'
@@ -37,6 +36,6 @@ module.exports = {
     'no-case-declarations': 'off',
     'no-console': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
-    '@typescript-eslint/consistent-type-imports': 'warn'
+    '@typescript-eslint/consistent-type-imports': 'warn',
   }
 }
