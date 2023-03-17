@@ -22,6 +22,7 @@ export const useGetMovies = globalAction$(async (values) => {
   const list = data.Search as Item[]
   return { movies: list ?? [] }
 }, zod$({ search: z.string() }))
+// }, zod$({ search: z.string() }),checkAuth,checkFromCountry('russion') )
 
 // export const useGetMoviesRoute = routeAction$(async (values) => {
 //   const url = new URL('https://omdbapi.com/')
