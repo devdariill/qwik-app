@@ -3,7 +3,7 @@ import type { DocumentHead } from '@builder.io/qwik-city'
 import { server$ } from '@builder.io/qwik-city'
 import Hero from '~/components/starter/hero/hero'
 import Contenido from '../routes/contenido.md'
-import { clickExport } from './apis'
+import { clickExport, clickSearch } from './apis'
 export default component$(() => {
   const count = useSignal(1)
   return (
@@ -27,6 +27,14 @@ export default component$(() => {
         </button>
         <button onClick$={async () => (count.value = await clickExport(count))}>
           Export Server
+        </button>
+        <button
+          onClick$={async () => {
+            const search = await clickSearch('search')
+            console.log(search)
+          }}
+        >
+          Search Server
         </button>
       </div>
     </>

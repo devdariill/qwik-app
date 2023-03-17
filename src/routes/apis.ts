@@ -6,3 +6,8 @@ export const clickExport = server$((count) => {
   console.log('tempCount', tempCount)
   return tempCount
 })
+
+export const clickSearch = server$((search) => {
+  console.log('tempCount', search)
+  return new Date()
+})
