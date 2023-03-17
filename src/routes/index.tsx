@@ -13,10 +13,11 @@ const apiFunction = server$((nu: number) => {
   console.log(nu)
   return {
     nu: nu * 2,
-    foo: $(() => {
-      console.log('from where')
-    }),
+    foo: sss,
   }
+})
+const sss = $(() => {
+  console.log('sss')
 })
 
 export default component$(() => {
