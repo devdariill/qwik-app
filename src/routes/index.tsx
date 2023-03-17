@@ -35,7 +35,7 @@ export default component$(() => {
         </h3>
         <section>
           <h2>Fetch</h2>
-          <form action={movies.actionPath}>
+          <form method="post" action={movies.actionPath}>
             <input type="text" name="search" />
             <button type="submit">Search</button>
           </form>
