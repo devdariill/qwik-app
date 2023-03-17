@@ -1,7 +1,6 @@
 import { component$ } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
-import { zod$, z } from '@builder.io/qwik-city'
-import { routeAction$ } from '@builder.io/qwik-city'
+import { routeAction$, zod$, z } from '@builder.io/qwik-city'
 import Hero from '~/components/starter/hero/hero'
 import Contenido from '../routes/contenido.md'
 
