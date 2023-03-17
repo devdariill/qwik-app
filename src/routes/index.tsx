@@ -1,8 +1,9 @@
 import { component$ } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
-import { routeAction$, zod$, z } from '@builder.io/qwik-city'
+import { globalAction$ } from '@builder.io/qwik-city'
+import { Form } from '@builder.io/qwik-city'
+import { zod$, z } from '@builder.io/qwik-city'
 import Hero from '~/components/starter/hero/hero'
-import Contenido from '../routes/contenido.md'
 
 export interface Item {
   Poster: string
@@ -12,7 +13,7 @@ export interface Item {
   imdbID: string
 }
 
-export const useGetMovies = routeAction$(async (values) => {
+export const useGetMovies = globalAction$(async (values) => {
   const url = new URL('https://omdbapi.com/')
   url.searchParams.set('s', values.search)
   // url.searchParams.set('s', values.search as string)
@@ -29,15 +30,12 @@ export default component$(() => {
     <>
       <Hero />
       <div class="container center gap-y-5 grid -mt-36">
-        <h3>
-          <Contenido />
-        </h3>
         <section>
           <h2>Fetch</h2>
-          <form method="post" action={movies.actionPath}>
-            <input type="text" name="search" />
+          <Form action={movies}>
+            <input type="text" name="search" required />
             <button type="submit">Search</button>
-          </form>
+          </Form>
           <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {movies.value?.movies?.map((item) => (
               <li key={item.imdbID} class="grid place-items-center gap-5">
