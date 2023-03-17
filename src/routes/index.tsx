@@ -1,5 +1,6 @@
 import { component$, useSignal } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
+import { server$ } from '@builder.io/qwik-city'
 import Hero from '~/components/starter/hero/hero'
 import Contenido from '../routes/contenido.md'
 export default component$(() => {
@@ -7,7 +8,7 @@ export default component$(() => {
   return (
     <>
       <Hero />
-      <div class="container center gap-y-5 grid -mt-28">
+      <div class="container center gap-y-5 grid -mt-36">
         <h3>
           <Contenido />
         </h3>
@@ -19,6 +20,15 @@ export default component$(() => {
           }}
         >
           Click {count.value}
+        </button>
+        <button
+          class={{ par: count.value % 2 === 0, impar: count.value % 2 === 1 }}
+          onClick$={server$(() => {
+            console.log('click')
+            count.value++
+          })}
+        >
+          Server {count.value}
         </button>
       </div>
     </>
